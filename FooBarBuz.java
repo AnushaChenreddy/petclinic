@@ -9,6 +9,9 @@ public class FooBarBuz {
 			 else if (i%5 == 0 ){
 				 System.out.println("Foo Bar");
 			 }
+			 else if (i%7 == 0 ){
+				 System.out.println("Baz");
+			 }
 			 else {
 				 System.out.println(i);
 			 }
