@@ -1,8 +1,8 @@
 
 import java.util.Scanner;
 import java.io.*;
-public class FooBarBuz {
-   static final String output_path = "C:\\Users\\Anusha\\Desktop\\Spring'14\\Studio\\CourseWork\\foobarbuz.txt";
+public class FooBarBaz {
+   static final String output_path = "C:\\Users\\Anusha\\Desktop\\Spring_2014\\Studio\\CourseWork\\foobarbaz.txt";
    static FileWriter fw;
 	public static void main (String args[])throws Exception {
       fw = new FileWriter(output_path,false);	
