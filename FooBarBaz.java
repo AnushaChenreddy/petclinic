@@ -37,25 +37,19 @@ public class FooBarBaz {
          if (num == 0){
                 return "0";   }			
    	   if (num%3 == 0 && num%5 == 0){
-   //				 System.out.println("Foo Bar"); 
             return "Foo Bar"; }
          else if (num%5 == 0 ){
-   //				 System.out.println("Bar");}
             return "Bar";}
    		else if (num%3 ==0 ){
-   //				 System.out.println("Foo"); }
             return "Foo";}
    		else if (num%7 == 0 ){
-   //				 System.out.println("Baz"); }
             return "Baz";}
    		else {
-   //				 System.out.println(num);
             return num + "";
              }
          }
 		 }
 		catch(Exception e){
-//			System.out.println("Invalid Input");
          return "Invalid Input";
 		}
       
