@@ -152,18 +152,7 @@ public class Issue {
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result
-					+ ((assignee == null) ? 0 : assignee.hashCode());
-			result = prime * result + ((body == null) ? 0 : body.hashCode());
-			result = prime * result
-					+ ((closedAt == null) ? 0 : closedAt.hashCode());
-			result = prime * result
-					+ ((createdAt == null) ? 0 : createdAt.hashCode());
 			result = prime * result + ((id == null) ? 0 : id.hashCode());
-			result = prime * result + (int) (number ^ (number >>> 32));
-			result = prime * result + (state ? 1231 : 1237);
-			result = prime * result + ((title == null) ? 0 : title.hashCode());
-			result = prime * result + ((user == null) ? 0 : user.hashCode());
 			return result;
 		}
 
@@ -172,53 +161,26 @@ public class Issue {
 		 */
 		@Override
 		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
 			if (obj == null)
 				return false;
-			if (getClass() != obj.getClass())
-				return false;
 			Issue other = (Issue) obj;
-			if (assignee == null) {
-				if (other.assignee != null)
-					return false;
-			} else if (!assignee.equals(other.assignee))
-				return false;
-			if (body == null) {
-				if (other.body != null)
-					return false;
-			} else if (!body.equals(other.body))
-				return false;
-			if (closedAt == null) {
-				if (other.closedAt != null)
-					return false;
-			} else if (!closedAt.equals(other.closedAt))
-				return false;
-			if (createdAt == null) {
-				if (other.createdAt != null)
-					return false;
-			} else if (!createdAt.equals(other.createdAt))
-				return false;
 			if (id == null) {
 				if (other.id != null)
 					return false;
 			} else if (!id.equals(other.id))
 				return false;
-			if (number != other.number)
-				return false;
-			if (state != other.state)
-				return false;
-			if (title == null) {
-				if (other.title != null)
-					return false;
-			} else if (!title.equals(other.title))
-				return false;
-			if (user == null) {
-				if (other.user != null)
-					return false;
-			} else if (!user.equals(other.user))
-				return false;
 			return true;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "Issue [number=" + number + ", id=" + id + ", state="
+					+ state + ", title=" + title + ", body=" + body
+					+ ", createdAt=" + createdAt + ", closedAt=" + closedAt
+					+ ", user=" + user.toString() + ", assignee=" + assignee.toString() + "]";
 		}
 
 }
