@@ -7,6 +7,7 @@ public class User {
 		private String login;
 		private String id;
 		
+		/* public no-argument constructor */
 		public User() {
 
 		}
@@ -39,9 +40,7 @@ public class User {
 			this.id = id;
 		}
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#hashCode()
-		 */
+		/* Hash on the internal id. */
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -50,9 +49,7 @@ public class User {
 			return result;
 		}
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#equals(java.lang.Object)
-		 */
+		/* equals() method - defining equality as two issues having the same internal id. */
 		@Override
 		public boolean equals(Object obj) {
 			if (obj == null)
@@ -67,9 +64,7 @@ public class User {
 			return true;
 		}
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#toString()
-		 */
+		/* toString() method to represent the object’s attributes. */
 		@Override
 		public String toString() {
 			return "User [login=" + login + ", id=" + id + "]";

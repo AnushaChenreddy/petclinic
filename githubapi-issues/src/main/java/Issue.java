@@ -16,6 +16,7 @@ public class Issue {
 		private User user;
 		private User assignee;
 		
+		/* public no-argument constructor */
 		public Issue() {
 		}
 
@@ -145,9 +146,7 @@ public class Issue {
 			this.assignee = assignee;
 		}
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#hashCode()
-		 */
+		/* Hash on the internal id. */
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -156,9 +155,7 @@ public class Issue {
 			return result;
 		}
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#equals(java.lang.Object)
-		 */
+		/* equals() method - defining equality as two issues having the same internal id. */
 		@Override
 		public boolean equals(Object obj) {
 			if (obj == null)
@@ -172,8 +169,8 @@ public class Issue {
 			return true;
 		}
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#toString()
+		/* toString() method to represent the object’s attributes.
+		 * Issue.toString() invoking User.toString() to represent the user and assignee.
 		 */
 		@Override
 		public String toString() {
