@@ -10,14 +10,13 @@ public class IssuesExporter {
 	public static void main(String[] args)throws Exception {
 		IssuesExporter obj = new IssuesExporter();
 		ArrayList<Issue> myList = new ArrayList<Issue>();
-//		FileWriter fw ;//= new FileWriter("issues.txt", false);
 		obj.readInput();
 		obj.issueList(myList);
-//		ArrayList<Issue> list = issueList();
 		obj.numberOfIssues(myList);
 		obj.writeToFile(myList, obj.fwObj);
 	}
 	
+	/* Method to read input from console */
 	public void readInput(){
 		Scanner input = new Scanner(System.in);
 		try{
@@ -34,6 +33,7 @@ public class IssuesExporter {
 		}
 	} 
 	
+	/* This method adds issues to the collection*/
 	public void issueList(ArrayList<Issue> myList){
 		User user1 = populateUser("anusha","userid01");
 		User assignee1 = populateUser("anusha","userid01");
@@ -46,13 +46,13 @@ public class IssuesExporter {
 		User user3 = populateUser("user3","userid03");
 		User assignee3 = populateUser("assignee3","userid01");
 		Issue issue3 = populateIssue(Long.valueOf(003),"iss03",false,"Title of Issue3","Body of Issue3", new Date(2014-02-03), new Date(), user3, assignee3);  
-//		ArrayList<Issue> myList = new ArrayList<Issue>();
 		
 		myList.add(issue1);
 		myList.add(issue2);
 		myList.add(issue3);	
 	}
 	
+	/* This method populates issues*/
 	public Issue populateIssue(long number, String id, boolean state, String title, String body, Date createdAt, Date closedAt, User user, User assignee){
 		Issue issue = new Issue();
 		issue.setId(id);
@@ -72,6 +72,7 @@ public class IssuesExporter {
 		return issue;
 	}
 	
+	/* this method populates users */
 	public User populateUser(String userName, String id){
 		User user = new User();
 		user.setLogin(userName);
@@ -79,22 +80,24 @@ public class IssuesExporter {
 		return user;
 	}
 	
+	/* Method to calculate the size of collection or number of issues */
 	public void numberOfIssues(ArrayList<Issue> myList){
 		int size = myList.size();
 		System.out.println("Number of Issues:" + size);
 	}
 	
+	/* Method to write to issues.txt file. 
+	 * This method invokes the toString() method of Issue class
+	 */
 	public void writeToFile(ArrayList<Issue> myList, FileWriter fw)throws Exception {
 		try{
 			
 			fw = new FileWriter("issues.txt", false);
 			String newline = System.getProperty("line.separator");
 			Iterator<Issue> iterate = myList.iterator();
-//			Issue issue = new Issue();
 			while(iterate.hasNext())
 			{
 			    Issue issue = iterate.next();
-//				Issue issue = new Issue();
 				String text = issue.toString();
 				System.out.println(text);
 				fw.write(text + newline);
