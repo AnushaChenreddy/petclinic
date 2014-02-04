@@ -6,14 +6,13 @@ import java.util.*;
 
 public class IssuesExporter {
 	
-	public FileWriter fwObj = null;
 	public static void main(String[] args)throws Exception {
 		IssuesExporter obj = new IssuesExporter();
 		ArrayList<Issue> myList = new ArrayList<Issue>();
 		obj.readInput();
 		obj.issueList(myList);
 		obj.numberOfIssues(myList);
-		obj.writeToFile(myList, obj.fwObj);
+		obj.writeToFile(myList);
 	}
 	
 	/* Method to read input from console */
@@ -89,10 +88,10 @@ public class IssuesExporter {
 	/* Method to write to issues.txt file. 
 	 * This method invokes the toString() method of Issue class
 	 */
-	public void writeToFile(ArrayList<Issue> myList, FileWriter fw)throws Exception {
+	public void writeToFile(ArrayList<Issue> myList)throws Exception {
+		
+		FileWriter fw = new FileWriter("issues.txt", false);
 		try{
-			
-			fw = new FileWriter("issues.txt", false);
 			String newline = System.getProperty("line.separator");
 			Iterator<Issue> iterate = myList.iterator();
 			while(iterate.hasNext())
