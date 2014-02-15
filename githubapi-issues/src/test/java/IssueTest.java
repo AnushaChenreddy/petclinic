@@ -14,6 +14,7 @@ public class IssueTest {
 		obj1.setId("abccd");
 		Issue obj2 = new Issue();
 		obj2.setId("abccd");
+
 		assertEquals(obj1.hashCode(), obj2.hashCode());
 		assertEquals(obj1.hashCode(), obj1.hashCode());
 		assertTrue(obj1.hashCode() == obj2.hashCode());
@@ -27,6 +28,7 @@ public class IssueTest {
 		obj2.setId("6");
 		Issue obj3 = new Issue();
 		obj3.setId("abc");
+
 		assertFalse(obj1.equals(obj3));
 		assertTrue(obj1.equals(obj2));
 		assertEquals(obj1.equals(obj2), true);
@@ -55,6 +57,7 @@ public class IssueTest {
 		assignee_obj.setLogin("assignee1");
 		iss_obj.setAssignee(assignee_obj);
 		iss_obj.setUser(user_obj);
+
 		assertEquals(tester, iss_obj.toString());
 
 		/* Passing a string with improper order */
@@ -74,6 +77,7 @@ public class IssueTest {
 		assignee_obj1.setLogin("assignee2");
 		iss_obj1.setAssignee(assignee_obj1);
 		iss_obj1.setUser(user_obj1);
+
 		assertFalse(test == iss_obj1.toString());
 
 	}
