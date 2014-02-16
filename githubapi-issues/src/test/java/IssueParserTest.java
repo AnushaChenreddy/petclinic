@@ -2,7 +2,7 @@ package test.java;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import main.java.*;
 
@@ -14,9 +14,10 @@ public class IssueParserTest {
 	String sampleOutput;
 
 	@Test
-	public void test() {
+	public void test() throws Exception {
+		setUp();
 		IssueParser obj = new IssueParser();
-		ArrayList<Issue> issues = obj.parseIssues(sampleOutput);
+		List<Issue> issues = obj.parseIssues(sampleOutput);
 		assertNotNull(issues);
 		assertEquals(3, issues.size());
 
@@ -28,7 +29,7 @@ public class IssueParserTest {
 		assertEquals("AnushaChenreddy", issue0.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue0.getAssignee().getLogin());
 		assertEquals(3, issue0.getNumber());
-		assertEquals(1, issue0.isState());
+		assertEquals(false, issue0.isState());
 		assertEquals(null, issue0.getClosedAt());
 
 		Issue issue1 = issues.get(1);
@@ -44,7 +45,7 @@ public class IssueParserTest {
 		assertEquals("AnushaChenreddy", issue1.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue1.getAssignee().getLogin());
 		assertEquals(2, issue1.getNumber());
-		assertEquals(1, issue1.isState());
+		assertEquals(false, issue1.isState());
 		assertEquals(null, issue1.getClosedAt());
 
 		Issue issue2 = issues.get(2);
@@ -52,11 +53,12 @@ public class IssueParserTest {
 		assertEquals("Submitting pull request!", issue2.getBody());
 		assertEquals("AnushaChenreddy", issue2.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue2.getAssignee().getLogin());
-		assertEquals(1, issue0.getNumber());
-		assertEquals(1, issue0.isState());
-		assertEquals(null, issue0.getClosedAt());
+		assertEquals(1, issue2.getNumber());
+		assertEquals(false, issue2.isState());
+		assertEquals(null, issue2.getClosedAt());
 	}
 
+//	@Override
 	public void setUp() throws Exception {
 		BufferedReader reader = null;
 		FileReader inputFile = null;
