@@ -24,11 +24,12 @@ public class IssueParser {
 			Type collectionType = new TypeToken<List<Issue>>() {
 			}.getType();
 			issues = gson.fromJson(input, collectionType);
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 
-		}return issues;
+		}
+		return issues;
 
 	}
 }

@@ -58,7 +58,7 @@ public class IssueParserTest {
 		assertEquals(null, issue2.getClosedAt());
 	}
 
-//	@Override
+	// @Override
 	public void setUp() throws Exception {
 		BufferedReader reader = null;
 		FileReader inputFile = null;
