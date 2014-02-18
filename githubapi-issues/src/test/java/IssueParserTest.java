@@ -1,11 +1,14 @@
 package test.java;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import main.java.*;
+import main.java.Issue;
+import main.java.IssueParser;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
@@ -15,17 +18,18 @@ public class IssueParserTest {
 
 	@Test
 	public void test() throws Exception {
-		setUp();
+
 		IssueParser obj = new IssueParser();
 		List<Issue> issues = obj.parseIssues(sampleOutput);
 		assertNotNull(issues);
 		assertEquals(3, issues.size());
 
 		Issue issue0 = issues.get(0);
-		assertEquals("Changing the name of the class file", issue0.getTitle());
-		assertEquals(
-				"I have created a java class with the name 'FooBarBuz' and I wanted to rename it to 'FooBarBaz'.",
-				issue0.getBody());
+		assertEquals("Changing the name of the class " + "file",
+				issue0.getTitle());
+		assertEquals("I have created a java class "
+				+ "with the name 'FooBarBuz' " + "and I wanted to rename it "
+				+ "to 'FooBarBaz'.", issue0.getBody());
 		assertEquals("AnushaChenreddy", issue0.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue0.getAssignee().getLogin());
 		assertEquals(3, issue0.getNumber());
@@ -33,14 +37,16 @@ public class IssueParserTest {
 		assertEquals(null, issue0.getClosedAt());
 
 		Issue issue1 = issues.get(1);
-		assertEquals(
-				"Handling files in an OS-independent, user-independent way.",
-				issue1.getTitle());
-		assertEquals(
-				"For saving the output of a java file to a text file, "
-						+ "If we give a path that is local to our environment it works well when we execute it on our PC. "
-						+ "But it we want to run the program from a different environment we will have to change the path given"
-						+ " in the program. How to handle them in an OS-independent, user-independent way.",
+		assertEquals("Handling files in an OS-independent,"
+				+ " user-independent way.", issue1.getTitle());
+		assertEquals("For saving the output of a java file "
+				+ "to a text file, If we give a path that is"
+				+ " local to our environment it works well "
+				+ "when we execute it on our PC. "
+				+ "But it we want to run the program from a different "
+				+ "environment we will have to change the path given"
+				+ " in the program. How to handle them in "
+				+ "an OS-independent, " + "user-independent way.",
 				issue1.getBody());
 		assertEquals("AnushaChenreddy", issue1.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue1.getAssignee().getLogin());
@@ -58,7 +64,7 @@ public class IssueParserTest {
 		assertEquals(null, issue2.getClosedAt());
 	}
 
-	// @Override
+	@Before
 	public void setUp() throws Exception {
 		BufferedReader reader = null;
 		FileReader inputFile = null;
