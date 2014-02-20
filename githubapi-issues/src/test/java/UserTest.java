@@ -13,10 +13,13 @@ public class UserTest {
 		obj1.setId("abccd");
 		User obj2 = new User();
 		obj2.setId("abccd");
+		User obj3 = new User();
+		obj3.setId(null);
 
 		assertEquals(obj1.hashCode(), obj2.hashCode());
 		assertEquals(obj1.hashCode(), obj1.hashCode());
 		assertTrue(obj1.hashCode() == obj2.hashCode());
+		assertFalse(obj3.hashCode() == obj1.hashCode());
 	}
 
 	@Test
@@ -27,11 +30,14 @@ public class UserTest {
 		obj2.setId("6");
 		User obj3 = new User();
 		obj3.setId("abc");
+		User obj4 = new User();
+		obj4.setId(null);		
 
 		assertFalse(obj1.equals(obj3));
 		assertTrue(obj1.equals(obj2));
 		assertEquals(obj1.equals(obj2), true);
 		assertEquals(obj1.equals(obj1), true);
+		assertEquals(obj1.equals(obj4), false);
 	}
 
 	@Test

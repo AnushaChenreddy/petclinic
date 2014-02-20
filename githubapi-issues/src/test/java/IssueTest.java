@@ -14,10 +14,13 @@ public class IssueTest {
 		obj1.setId("abccd");
 		Issue obj2 = new Issue();
 		obj2.setId("abccd");
+		Issue obj3 = new Issue();
+		obj3.setId(null);
 
 		assertEquals(obj1.hashCode(), obj2.hashCode());
 		assertEquals(obj1.hashCode(), obj1.hashCode());
 		assertTrue(obj1.hashCode() == obj2.hashCode());
+		assertFalse(obj3.hashCode() == obj1.hashCode());
 	}
 
 	@Test
@@ -28,11 +31,14 @@ public class IssueTest {
 		obj2.setId("6");
 		Issue obj3 = new Issue();
 		obj3.setId("abc");
+		Issue obj4 = new Issue();
+		obj4.setId(null);
 
 		assertFalse(obj1.equals(obj3));
 		assertTrue(obj1.equals(obj2));
 		assertEquals(obj1.equals(obj2), true);
 		assertEquals(obj1.equals(obj1), true);
+		assertEquals(obj4.equals(null), false);
 	}
 
 	@Test

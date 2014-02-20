@@ -176,8 +176,8 @@ public class Issue {
 			return false;
 		Issue other = (Issue) obj;
 		if (id == null) {
-			if (other.id != null)
-				return false;
+			 if (other.id != null)
+			return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;

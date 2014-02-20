@@ -17,7 +17,7 @@ public class IssueParserTest {
 	String sampleOutput;
 
 	@Test
-	public void test() throws Exception {
+	public void testParseIssues() throws Exception {
 
 		IssueParser obj = new IssueParser();
 		List<Issue> issues = obj.parseIssues(sampleOutput);
