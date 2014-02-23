@@ -27,12 +27,29 @@ public class GitHubRestClient {
 
 	public static void main(String[] args) throws Exception {
 		GitHubRestClient prototype = new GitHubRestClient();
-		String json = prototype.requestClosedIssues("AnushaChenreddy", "Chenreddy$1");
-		System.out.println(json);
+		String jsonOpen = prototype.requestIssues("AnushaChenreddy",
+				"Chenreddy$1");
+		String jsonClosed = prototype.requestClosedIssues("AnushaChenreddy",
+				"Chenreddy$1");
+
+		System.out.println(jsonOpen);
+		System.out.println(jsonClosed);
+
 		IssueParser parserObject = new IssueParser();
-		List<Issue> issues = new ArrayList<Issue>();
-		issues = parserObject.parseIssues(json);
+		ArrayList<Issue> issues = new ArrayList<Issue>();
+		List<Issue> issues_closed = new ArrayList<Issue>();
+		issues = (ArrayList<Issue>) parserObject.parseIssues(jsonOpen);
+		issues_closed = parserObject.parseIssues(jsonClosed);
+
 		System.out.println(issues);
+		System.out.println(issues_closed);
+
+		issues.addAll(issues_closed);
+		System.out.println(issues);
+		
+		IssuesExporter exporterObject = new IssuesExporter();
+		exporterObject.numberOfIssues(issues);
+		exporterObject.writeToFile(issues);
 	}
 
 	public String requestIssues(String username, String password)
@@ -171,4 +188,3 @@ public class GitHubRestClient {
 		return jsonContent;
 	}
 }
-
