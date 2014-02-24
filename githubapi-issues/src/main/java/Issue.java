@@ -6,7 +6,7 @@ package main.java;
  */
 import java.util.*;
 
-public class Issue {
+public class Issue implements Comparable<Object> {
 
 	private long number;
 	private String id;
@@ -176,8 +176,8 @@ public class Issue {
 			return false;
 		Issue other = (Issue) obj;
 		if (id == null) {
-			 if (other.id != null)
-			return false;
+			if (other.id != null)
+				return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
@@ -193,6 +193,11 @@ public class Issue {
 				+ ", title=" + title + ", body=" + body + ", createdAt="
 				+ createdAt + ", closedAt=" + closedAt + ", user="
 				+ user.toString() + ", assignee=" + assignee.toString() + "]";
+	}
+
+
+	public int compareTo(Object obj) {
+		return 0;
 	}
 
 }

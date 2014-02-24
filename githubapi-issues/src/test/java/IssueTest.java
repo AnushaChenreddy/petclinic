@@ -88,4 +88,20 @@ public class IssueTest {
 
 	}
 
+	@Test
+	public void testCompareTo() {
+		Issue obj1 = new Issue();
+		Issue obj2 = new Issue();
+		Issue obj3 = new Issue();
+		Issue obj4 = new Issue();
+		obj1.setId("6");
+		obj2.setId("5");
+		obj3.setId("5");
+		obj4.setId("4");
+		assertEquals(1, obj1.compareTo(obj2)); // 6 vs 5
+		assertEquals(-1, obj4.compareTo(obj2));// 4 vs 5
+		assertEquals(0, obj3.compareTo(obj2)); // 5 vs 5
+
+	}
+
 }
