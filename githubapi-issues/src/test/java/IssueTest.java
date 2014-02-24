@@ -101,6 +101,8 @@ public class IssueTest {
 		assertEquals(1, obj1.compareTo(obj2)); // 6 vs 5
 		assertEquals(-1, obj4.compareTo(obj2));// 4 vs 5
 		assertEquals(0, obj3.compareTo(obj2)); // 5 vs 5
+		assertEquals(-5, obj4.compareTo(obj2));// checking for a -ve num
+		assertEquals(10, obj1.compareTo(obj2));// checking for a +ve num
 
 	}
 
