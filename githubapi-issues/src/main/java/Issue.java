@@ -197,6 +197,20 @@ public class Issue implements Comparable<Object> {
 
 
 	public int compareTo(Object obj) {
+		Issue other = (Issue) obj;
+		int locIntVal = Integer.parseInt(id);
+		int objIntVal = Integer.parseInt(other.id);
+		if(obj != null){
+			if (locIntVal == objIntVal){
+				return 0;
+			}
+			else if (locIntVal > objIntVal){
+				return 1;
+			}
+			else{
+				return -1;
+			}
+		}
 		return 0;
 	}
 
