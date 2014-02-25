@@ -38,14 +38,14 @@ public class GitHubRestClient {
 
 		IssueParser parserObject = new IssueParser();
 		ArrayList<Issue> issues = new ArrayList<Issue>();
-		List<Issue> issues_closed = new ArrayList<Issue>();
+		List<Issue> issuesClosed = new ArrayList<Issue>();
 		issues = (ArrayList<Issue>) parserObject.parseIssues(jsonOpen);
-		issues_closed = parserObject.parseIssues(jsonClosed);
+		issuesClosed = parserObject.parseIssues(jsonClosed);
 
 		System.out.println(issues);
-		System.out.println(issues_closed);
+		System.out.println(issuesClosed);
 
-		issues.addAll(issues_closed);
+		issues.addAll(issuesClosed);
 		System.out.println(issues);
 
 		Collections.sort(issues);
@@ -154,8 +154,9 @@ public class GitHubRestClient {
 			HttpClientContext localContext = HttpClientContext.create();
 			localContext.setAuthCache(authCache);
 
-			HttpGet httpget = new HttpGet(
-					"/repos/Villanova-SoftwareStudio-Spring2014/achenreddy-private-repo/issues?state=closed");
+			HttpGet httpget = new HttpGet("/repos/Villanova-"
+					+ "SoftwareStudio-" + "FSpring2014/"
+					+ "achenreddy-private-repo/issues?state=closed");
 
 			response = httpclient.execute(target, httpget, localContext);
 			System.out.println(response.getStatusLine());

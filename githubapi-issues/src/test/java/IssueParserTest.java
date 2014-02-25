@@ -3,6 +3,8 @@ package test.java;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.List;
 
 import main.java.Issue;
@@ -10,8 +12,6 @@ import main.java.IssueParser;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.*;
 
 public class IssueParserTest {
 	String sampleOutput;
@@ -28,8 +28,8 @@ public class IssueParserTest {
 		assertEquals("Changing the name of the class " + "file",
 				issue0.getTitle());
 		assertEquals("I have created a java class "
-				+ "with the name 'FooBarBuz' " + "and I wanted to rename it "
-				+ "to 'FooBarBaz'.", issue0.getBody());
+				+ "with the name 'FooBarBuz' " + "and I wanted "
+				+ "to rename it " + "to 'FooBarBaz'.", issue0.getBody());
 		assertEquals("AnushaChenreddy", issue0.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue0.getAssignee().getLogin());
 		assertEquals(3, issue0.getNumber());
@@ -42,9 +42,10 @@ public class IssueParserTest {
 		assertEquals("For saving the output of a java file "
 				+ "to a text file, If we give a path that is"
 				+ " local to our environment it works well "
-				+ "when we execute it on our PC. "
-				+ "But it we want to run the program from a different "
-				+ "environment we will have to change the path given"
+				+ "when we execute it on our " + "PC. "
+				+ "But it we want to run" + " the program "
+				+ "from a different " + "environment we will have "
+				+ "to change the path given"
 				+ " in the program. How to handle them in "
 				+ "an OS-independent, " + "user-independent way.",
 				issue1.getBody());

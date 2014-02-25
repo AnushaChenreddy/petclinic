@@ -1,8 +1,11 @@
 package test.java;
 
-import main.java.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import main.java.Issue;
+import main.java.User;
 
 import org.junit.Test;
 
@@ -99,10 +102,10 @@ public class IssueTest {
 		obj3.setId("5");
 		obj4.setId("4");
 		assertEquals(1, obj1.compareTo(obj2)); // 6 vs 5
-		assertEquals(-1, obj4.compareTo(obj2));// 4 vs 5
+		assertEquals(-1, obj4.compareTo(obj2)); // 4 vs 5
 		assertEquals(0, obj3.compareTo(obj2)); // 5 vs 5
-		assertNotEquals(-5, obj4.compareTo(obj2));// checking for a -ve num
-		assertNotEquals(10, obj1.compareTo(obj2));// checking for a +ve num
+		assertNotEquals(-5, obj4.compareTo(obj2)); // checking for a -ve num
+		assertNotEquals(10, obj1.compareTo(obj2)); // checking for a +ve num
 
 	}
 

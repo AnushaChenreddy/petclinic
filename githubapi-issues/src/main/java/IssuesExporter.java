@@ -1,10 +1,14 @@
 package main.java;
 
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Scanner;
+
 /* @author Anusha Chenreddy
  * @created_on 03-Feb-2014
  */
-import java.io.*;
-import java.util.*;
 
 public class IssuesExporter {
 

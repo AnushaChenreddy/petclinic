@@ -1,7 +1,9 @@
 package test.java;
 
-import main.java.*;
-import static org.junit.Assert.*;
+import main.java.User;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -43,20 +45,20 @@ public class UserTest {
 	@Test
 	/* Checking by passing a correct string */
 	public void testToString() {
-		User user_obj = new User();
+		User userobj = new User();
 		String tester = "User [login=user1, " + "id=userid01]";
-		user_obj.setId("userid01");
-		user_obj.setLogin("user1");
+		userobj.setId("userid01");
+		userobj.setLogin("user1");
 
-		assertEquals(tester, user_obj.toString());
+		assertEquals(tester, userobj.toString());
 
 		/* Passing a string with improper order */
-		User user_obj1 = new User();
+		User userobj1 = new User();
 		String test = "User=User [id=userid02, login=user2]";
-		user_obj1.setId("userid02");
-		user_obj1.setLogin("user2");
+		userobj1.setId("userid02");
+		userobj1.setLogin("user2");
 
-		assertFalse(test == user_obj1.toString());
+		assertFalse(test == userobj1.toString());
 
 	}
 
