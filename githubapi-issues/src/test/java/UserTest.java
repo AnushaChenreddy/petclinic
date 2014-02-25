@@ -31,7 +31,7 @@ public class UserTest {
 		User obj3 = new User();
 		obj3.setId("abc");
 		User obj4 = new User();
-		obj4.setId(null);		
+		obj4.setId(null);
 
 		assertFalse(obj1.equals(obj3));
 		assertTrue(obj1.equals(obj2));

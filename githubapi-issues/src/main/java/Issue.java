@@ -195,19 +195,16 @@ public class Issue implements Comparable<Object> {
 				+ user.toString() + ", assignee=" + assignee.toString() + "]";
 	}
 
-
 	public int compareTo(Object obj) {
 		Issue other = (Issue) obj;
 		int locIntVal = Integer.parseInt(id);
 		int objIntVal = Integer.parseInt(other.id);
-		if(obj != null){
-			if (locIntVal == objIntVal){
+		if (obj != null) {
+			if (locIntVal == objIntVal) {
 				return 0;
-			}
-			else if (locIntVal > objIntVal){
+			} else if (locIntVal > objIntVal) {
 				return 1;
-			}
-			else{
+			} else {
 				return -1;
 			}
 		}

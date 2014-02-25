@@ -47,10 +47,10 @@ public class GitHubRestClient {
 
 		issues.addAll(issues_closed);
 		System.out.println(issues);
-		
-	    Collections.sort(issues);
-	    System.out.println(issues);
-		
+
+		Collections.sort(issues);
+		System.out.println(issues);
+
 		IssuesExporter exporterObject = new IssuesExporter();
 		exporterObject.numberOfIssues(issues);
 		exporterObject.writeToFile(issues);
