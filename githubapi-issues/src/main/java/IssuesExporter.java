@@ -13,12 +13,12 @@ import java.util.Scanner;
 public class IssuesExporter {
 
 	public static void main(String[] args) throws Exception {
-		IssuesExporter obj = new IssuesExporter();
+		IssuesExporter issuesExporter = new IssuesExporter();
 		ArrayList<Issue> myList = new ArrayList<Issue>();
-		obj.readInput();
-		obj.issueList(myList);
-		obj.numberOfIssues(myList);
-		obj.writeToFile(myList);
+		issuesExporter.readInput();
+		issuesExporter.issueList(myList);
+		issuesExporter.numberOfIssues(myList);
+		issuesExporter.writeToFile(myList);
 	}
 
 	/* Method to read input from console */

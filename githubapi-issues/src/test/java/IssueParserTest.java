@@ -19,8 +19,8 @@ public class IssueParserTest {
 	@Test
 	public void testParseIssues() throws Exception {
 
-		IssueParser obj = new IssueParser();
-		List<Issue> issues = obj.parseIssues(sampleOutput);
+		IssueParser issueParser = new IssueParser();
+		List<Issue> issues = issueParser.parseIssues(sampleOutput);
 		assertNotNull(issues);
 		assertEquals(3, issues.size());
 
