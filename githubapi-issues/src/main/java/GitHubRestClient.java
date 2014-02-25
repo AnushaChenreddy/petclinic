@@ -86,8 +86,8 @@ public class GitHubRestClient {
 			HttpClientContext localContext = HttpClientContext.create();
 			localContext.setAuthCache(authCache);
 
-			HttpGet httpget = new HttpGet(
-					"/repos/Villanova-SoftwareStudio-Spring2014/achenreddy-private-repo/issues");
+			HttpGet httpget = new HttpGet("/repos/Villanova-SoftwareStudio"
+					+ "-Spring2014/achenreddy-private-repo" + "/issues");
 
 			response = httpclient.execute(target, httpget, localContext);
 			System.out.println(response.getStatusLine());
@@ -154,9 +154,9 @@ public class GitHubRestClient {
 			HttpClientContext localContext = HttpClientContext.create();
 			localContext.setAuthCache(authCache);
 
-			HttpGet httpget = new HttpGet("/repos/Villanova-"
-					+ "SoftwareStudio-" + "FSpring2014/"
-					+ "achenreddy-private-repo/issues?state=closed");
+			HttpGet httpget = new HttpGet("/repos/Villanova-SoftwareStudio"
+					+ "-Spring2014/achenreddy-private-repo"
+					+ "/issues?state=closed");
 
 			response = httpclient.execute(target, httpget, localContext);
 			System.out.println(response.getStatusLine());
