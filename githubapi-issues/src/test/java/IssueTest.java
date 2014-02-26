@@ -57,7 +57,7 @@ public class IssueTest {
 				+ "assignee=User [login=assignee1, id=userid01]]";
 		issueObj.setId("iss01");
 		issueObj.setNumber(1);
-		issueObj.setState(true);
+		issueObj.setState("true");
 		issueObj.setTitle("Title of Issue");
 		issueObj.setBody("Body of Issue");
 		userObj.setId("userid01");
@@ -79,7 +79,7 @@ public class IssueTest {
 				+ "assignee=User [id=userid02, login=assignee2]]";
 		issueObj1.setId("iss02");
 		issueObj1.setNumber(2);
-		issueObj1.setState(true);
+		issueObj1.setState("true");
 		userObj1.setId("userid02");
 		userObj1.setLogin("user2");
 		assigneeObj1.setId("userid02");

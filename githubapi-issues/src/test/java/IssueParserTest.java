@@ -33,7 +33,7 @@ public class IssueParserTest {
 		assertEquals("AnushaChenreddy", issue0.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue0.getAssignee().getLogin());
 		assertEquals(3, issue0.getNumber());
-		assertEquals(false, issue0.isState());
+		assertEquals("open", issue0.getState());
 		assertEquals(null, issue0.getClosedAt());
 
 		Issue issue1 = issues.get(1);
@@ -52,7 +52,7 @@ public class IssueParserTest {
 		assertEquals("AnushaChenreddy", issue1.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue1.getAssignee().getLogin());
 		assertEquals(2, issue1.getNumber());
-		assertEquals(false, issue1.isState());
+		assertEquals("open", issue1.getState());
 		assertEquals(null, issue1.getClosedAt());
 
 		Issue issue2 = issues.get(2);
@@ -61,7 +61,7 @@ public class IssueParserTest {
 		assertEquals("AnushaChenreddy", issue2.getUser().getLogin());
 		assertEquals("AnushaChenreddy", issue2.getAssignee().getLogin());
 		assertEquals(1, issue2.getNumber());
-		assertEquals(false, issue2.isState());
+		assertEquals("open", issue2.getState());
 		assertEquals(null, issue2.getClosedAt());
 	}
 

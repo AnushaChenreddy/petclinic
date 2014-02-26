@@ -40,19 +40,19 @@ public class IssuesExporter {
 	public void issueList(ArrayList<Issue> myList) {
 		User user1 = populateUser("anusha", "userid01");
 		User assignee1 = populateUser("anusha", "userid01");
-		Issue issue1 = populateIssue(Long.valueOf(001), "iss01", true,
+		Issue issue1 = populateIssue(Long.valueOf(001), "iss01", "open",
 				"Title of Issue1", "Body of Issue1", new Date(2014 - 02 - 03),
 				new Date(), user1, assignee1);
 
 		User user2 = populateUser("user2", "userid02");
 		User assignee2 = populateUser("assignee2", "userid01");
-		Issue issue2 = populateIssue(Long.valueOf(002), "iss02", true,
+		Issue issue2 = populateIssue(Long.valueOf(002), "iss02", "open",
 				"Title of Issue2", "Body of Issue2", new Date(2014 - 02 - 03),
 				new Date(), user2, assignee2);
 
 		User user3 = populateUser("user3", "userid03");
 		User assignee3 = populateUser("assignee3", "userid01");
-		Issue issue3 = populateIssue(Long.valueOf(003), "iss03", false,
+		Issue issue3 = populateIssue(Long.valueOf(003), "iss03", "closed",
 				"Title of Issue3", "Body of Issue3", new Date(2014 - 02 - 03),
 				new Date(), user3, assignee3);
 
@@ -62,7 +62,7 @@ public class IssuesExporter {
 	}
 
 	/* This method populates issues */
-	public Issue populateIssue(long number, String id, boolean state,
+	public Issue populateIssue(long number, String id, String state,
 			String title, String body, Date createdAt, Date closedAt,
 			User user, User assignee) {
 		Issue issue = new Issue();
@@ -72,7 +72,7 @@ public class IssuesExporter {
 		issue.setTitle(title);
 		issue.setBody(body);
 		issue.setCreatedAt(createdAt);
-		if (state != false) {
+		if (state != "closed") {
 			issue.setClosedAt(null);
 		} else {
 			issue.setClosedAt(closedAt);

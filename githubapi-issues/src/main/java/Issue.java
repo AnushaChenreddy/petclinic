@@ -10,7 +10,7 @@ public class Issue implements Comparable<Object> {
 
 	private long number;
 	private String id;
-	private boolean state;
+	private String state;
 	private String title;
 	private String body;
 	private Date createdAt;
@@ -53,9 +53,11 @@ public class Issue implements Comparable<Object> {
 	}
 
 	/**
-	 * @return the state
+	 * @param id
+	 *            the id to set
 	 */
-	public boolean isState() {
+
+	public String getState() {
 		return state;
 	}
 
@@ -63,7 +65,7 @@ public class Issue implements Comparable<Object> {
 	 * @param state
 	 *            the state to set
 	 */
-	public void setState(boolean state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 
