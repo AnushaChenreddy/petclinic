@@ -13,35 +13,35 @@ public class IssueTest {
 
 	@Test
 	public void testHashCode() {
-		Issue obj1 = new Issue();
-		obj1.setId("abccd");
-		Issue obj2 = new Issue();
-		obj2.setId("abccd");
-		Issue obj3 = new Issue();
-		obj3.setId(null);
+		Issue issueObj1 = new Issue();
+		issueObj1.setId("abccd");
+		Issue issueObj2 = new Issue();
+		issueObj2.setId("abccd");
+		Issue issueObj3 = new Issue();
+		issueObj3.setId(null);
 
-		assertEquals(obj1.hashCode(), obj2.hashCode());
-		assertEquals(obj1.hashCode(), obj1.hashCode());
-		assertTrue(obj1.hashCode() == obj2.hashCode());
-		assertFalse(obj3.hashCode() == obj1.hashCode());
+		assertEquals(issueObj1.hashCode(), issueObj2.hashCode());
+		assertEquals(issueObj1.hashCode(), issueObj1.hashCode());
+		assertTrue(issueObj1.hashCode() == issueObj2.hashCode());
+		assertFalse(issueObj3.hashCode() == issueObj1.hashCode());
 	}
 
 	@Test
 	public void testEquals() {
-		Issue obj1 = new Issue();
-		obj1.setId("6");
-		Issue obj2 = new Issue();
-		obj2.setId("6");
-		Issue obj3 = new Issue();
-		obj3.setId("abc");
-		Issue obj4 = new Issue();
-		obj4.setId(null);
+		Issue issueObj1 = new Issue();
+		issueObj1.setId("6");
+		Issue issueObj2 = new Issue();
+		issueObj2.setId("6");
+		Issue issueObj3 = new Issue();
+		issueObj3.setId("abc");
+		Issue issueObj4 = new Issue();
+		issueObj4.setId(null);
 
-		assertFalse(obj1.equals(obj3));
-		assertTrue(obj1.equals(obj2));
-		assertEquals(obj1.equals(obj2), true);
-		assertEquals(obj1.equals(obj1), true);
-		assertEquals(obj4.equals(null), false);
+		assertFalse(issueObj1.equals(issueObj3));
+		assertTrue(issueObj1.equals(issueObj2));
+		assertEquals(issueObj1.equals(issueObj2), true);
+		assertEquals(issueObj1.equals(issueObj1), true);
+		assertEquals(issueObj4.equals(null), false);
 	}
 
 	@Test
@@ -93,19 +93,21 @@ public class IssueTest {
 
 	@Test
 	public void testCompareTo() {
-		Issue obj1 = new Issue();
-		Issue obj2 = new Issue();
-		Issue obj3 = new Issue();
-		Issue obj4 = new Issue();
-		obj1.setId("6");
-		obj2.setId("5");
-		obj3.setId("5");
-		obj4.setId("4");
-		assertEquals(1, obj1.compareTo(obj2)); // 6 vs 5
-		assertEquals(-1, obj4.compareTo(obj2)); // 4 vs 5
-		assertEquals(0, obj3.compareTo(obj2)); // 5 vs 5
-		assertNotEquals(-5, obj4.compareTo(obj2)); // checking for a -ve num
-		assertNotEquals(10, obj1.compareTo(obj2)); // checking for a +ve num
+		Issue issueObj1 = new Issue();
+		Issue issueObj2 = new Issue();
+		Issue issueObj3 = new Issue();
+		Issue issueObj4 = new Issue();
+		issueObj1.setId("6");
+		issueObj2.setId("5");
+		issueObj3.setId("5");
+		issueObj4.setId("4");
+		assertEquals(1, issueObj1.compareTo(issueObj2)); // 6 vs 5
+		assertEquals(-1, issueObj4.compareTo(issueObj2)); // 4 vs 5
+		assertEquals(0, issueObj3.compareTo(issueObj2)); // 5 vs 5
+		assertNotEquals(-5, issueObj4.compareTo(issueObj2)); // checking for a
+																// -ve num
+		assertNotEquals(10, issueObj1.compareTo(issueObj2)); // checking for a
+																// +ve num
 
 	}
 

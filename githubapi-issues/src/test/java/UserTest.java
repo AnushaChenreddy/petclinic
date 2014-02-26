@@ -11,35 +11,35 @@ public class UserTest {
 
 	@Test
 	public void testHashCode() {
-		User obj1 = new User();
-		obj1.setId("abccd");
-		User obj2 = new User();
-		obj2.setId("abccd");
-		User obj3 = new User();
-		obj3.setId(null);
+		User userObj1 = new User();
+		userObj1.setId("abccd");
+		User userObj2 = new User();
+		userObj2.setId("abccd");
+		User userObj3 = new User();
+		userObj3.setId(null);
 
-		assertEquals(obj1.hashCode(), obj2.hashCode());
-		assertEquals(obj1.hashCode(), obj1.hashCode());
-		assertTrue(obj1.hashCode() == obj2.hashCode());
-		assertFalse(obj3.hashCode() == obj1.hashCode());
+		assertEquals(userObj1.hashCode(), userObj2.hashCode());
+		assertEquals(userObj1.hashCode(), userObj1.hashCode());
+		assertTrue(userObj1.hashCode() == userObj2.hashCode());
+		assertFalse(userObj3.hashCode() == userObj1.hashCode());
 	}
 
 	@Test
 	public void testEquals() {
-		User obj1 = new User();
-		obj1.setId("6");
-		User obj2 = new User();
-		obj2.setId("6");
-		User obj3 = new User();
-		obj3.setId("abc");
-		User obj4 = new User();
-		obj4.setId(null);
+		User userObj1 = new User();
+		userObj1.setId("6");
+		User userObj2 = new User();
+		userObj2.setId("6");
+		User userObj3 = new User();
+		userObj3.setId("abc");
+		User userObj4 = new User();
+		userObj4.setId(null);
 
-		assertFalse(obj1.equals(obj3));
-		assertTrue(obj1.equals(obj2));
-		assertEquals(obj1.equals(obj2), true);
-		assertEquals(obj1.equals(obj1), true);
-		assertEquals(obj1.equals(obj4), false);
+		assertFalse(userObj1.equals(userObj3));
+		assertTrue(userObj1.equals(userObj2));
+		assertEquals(userObj1.equals(userObj2), true);
+		assertEquals(userObj1.equals(userObj1), true);
+		assertEquals(userObj1.equals(userObj4), false);
 	}
 
 	@Test
