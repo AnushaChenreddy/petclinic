@@ -28,10 +28,11 @@ public class GitHubRestClient {
 
 	public static void main(String[] args) throws Exception {
 		GitHubRestClient prototype = new GitHubRestClient();
-		String jsonOpen = prototype.requestIssues("AnushaChenreddy",
-				"Chenreddy$1");
-		String jsonClosed = prototype.requestClosedIssues("AnushaChenreddy",
-				"Chenreddy$1");
+
+		// XXXXXX / XXXXXX refer to username, password
+
+		String jsonOpen = prototype.requestIssues("XXXXXX", "XXXXXX");
+		String jsonClosed = prototype.requestClosedIssues("XXXXXX", "XXXXXX");
 
 		System.out.println(jsonOpen);
 		System.out.println(jsonClosed);
