@@ -59,23 +59,22 @@ public class User {
 	 * equals() method - defining equality as two issues having the same
 	 * internal id.
 	 */
+
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null) {
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		}
-
+		if (getClass() != obj.getClass())
+			return false;
 		User other = (User) obj;
 		if (id == null) {
-			if (other.id != null) {
+			if (other.id != null)
 				return false;
-			}
-
-		} else if (!id.equals(other.id)) {
+		} else if (!id.equals(other.id))
 			return false;
-		}
 		return true;
-
 	}
 
 	/* toString() method to represent the object’s attributes. */

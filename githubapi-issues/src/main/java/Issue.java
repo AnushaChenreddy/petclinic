@@ -174,9 +174,16 @@ public class Issue implements Comparable<Object> {
 	 * equals() method - defining equality as two issues having the same
 	 * internal id.
 	 */
+
 	@Override
 	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
 		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
 		}
 		Issue other = (Issue) obj;
@@ -192,7 +199,7 @@ public class Issue implements Comparable<Object> {
 
 	/*
 	 * toString() method to represent the object’s attributes. Issue.toString()
-	 * invoking User.toString() to represent the user and assignee.
+	 * // * invoking User.toString() to represent the user and assignee. //
 	 */
 	@Override
 	public String toString() {
@@ -203,6 +210,9 @@ public class Issue implements Comparable<Object> {
 	}
 
 	public int compareTo(Object obj) {
+		if (getClass() != obj.getClass()) {
+			return -1;
+		}
 		Issue other = (Issue) obj;
 		int locIntVal = Integer.parseInt(id);
 		int objIntVal = Integer.parseInt(other.id);
