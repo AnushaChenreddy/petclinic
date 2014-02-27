@@ -37,9 +37,9 @@ public class UserTest {
 
 		assertFalse(userObj1.equals(userObj3));
 		assertTrue(userObj1.equals(userObj2));
-		assertEquals(userObj1.equals(userObj2), true);
-		assertEquals(userObj1.equals(userObj1), true);
-		assertEquals(userObj1.equals(userObj4), false);
+		assertEquals(true, userObj1.equals(userObj2));
+		assertEquals(true, userObj1.equals(userObj1));
+		assertEquals(false, userObj1.equals(userObj4));
 	}
 
 	@Test
