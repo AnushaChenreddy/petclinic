@@ -225,7 +225,8 @@ public class Issue implements Comparable<Object> {
 				return -1;
 			}
 		}
-		return 0;
+		return -1;
+
 	}
 
 }

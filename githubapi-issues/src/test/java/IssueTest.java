@@ -3,6 +3,7 @@ package test.java;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import main.java.Issue;
 import main.java.User;
@@ -36,12 +37,16 @@ public class IssueTest {
 		issueObj3.setId("abc");
 		Issue issueObj4 = new Issue();
 		issueObj4.setId(null);
+		User userObj = new User();
+		userObj.setId("userid01");
 
 		assertFalse(issueObj1.equals(issueObj3));
 		assertTrue(issueObj1.equals(issueObj2));
-		assertEquals(issueObj1.equals(issueObj2), true);
-		assertEquals(issueObj1.equals(issueObj1), true);
-		assertEquals(issueObj4.equals(null), false);
+		assertEquals(true, issueObj1.equals(issueObj2));
+		assertEquals(true, issueObj1.equals(issueObj1));
+		assertEquals(false, issueObj4.equals(null));
+		assertEquals(false, issueObj4.equals(userObj));
+		assertEquals(false, issueObj4.equals("Hello"));
 	}
 
 	@Test
@@ -97,17 +102,22 @@ public class IssueTest {
 		Issue issueObj2 = new Issue();
 		Issue issueObj3 = new Issue();
 		Issue issueObj4 = new Issue();
+		Issue issueObj5 = new Issue();
 		issueObj1.setId("6");
 		issueObj2.setId("5");
 		issueObj3.setId("5");
 		issueObj4.setId("4");
-		assertEquals(1, issueObj1.compareTo(issueObj2)); // 6 vs 5
-		assertEquals(-1, issueObj4.compareTo(issueObj2)); // 4 vs 5
-		assertEquals(0, issueObj3.compareTo(issueObj2)); // 5 vs 5
-		assertNotEquals(-5, issueObj4.compareTo(issueObj2)); // checking for a
-																// -ve num
-		assertNotEquals(10, issueObj1.compareTo(issueObj2)); // checking for a
-																// +ve num
+		issueObj5.setId(" ");
+		assertEquals(1, issueObj1.compareTo(issueObj2));
+		assertEquals(-1, issueObj4.compareTo(issueObj2));
+		assertEquals(0, issueObj3.compareTo(issueObj2));
+		assertNotEquals(-5, issueObj4.compareTo(issueObj2));
+		assertNotEquals(10, issueObj1.compareTo(issueObj2));
+		try {
+			assertNull(issueObj2.compareTo(null));
+		} catch (NullPointerException e) {
+			System.out.println("NullPointerException!");
+		}
 
 	}
 
