@@ -29,15 +29,15 @@ public class GitHubRestClient {
 	public static void main(String[] args) throws Exception {
 		GitHubRestClient prototype = new GitHubRestClient();
 
+		final String URL = "/repos" + "/Villanova-SoftwareStudio"
+				+ "-Spring2014/achenreddy-private-repo" + "/issues";
+
 		// XXXXXX refer to username, password
 
 		String jsonOpen = prototype.requestIssues("AnushaChenreddy",
-				"Chenreddy$1", "/repos" + "/Villanova-SoftwareStudio"
-						+ "-Spring2014/achenreddy-private-repo" + "/issues");
+				"Chenreddy$1", URL);
 		String jsonClosed = prototype.requestIssues("AnushaChenreddy",
-				"Chenreddy$1", "/repos/Villanova-SoftwareStudio"
-						+ "-Spring2014/achenreddy-private-repo"
-						+ "/issues?state=closed");
+				"Chenreddy$1", URL + "?state=closed");
 
 		System.out.println(jsonOpen);
 		System.out.println(jsonClosed);
