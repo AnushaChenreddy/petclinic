@@ -3,7 +3,6 @@ package test.java;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import main.java.Issue;
 import main.java.User;
@@ -113,12 +112,14 @@ public class IssueTest {
 		assertEquals(0, issueObj3.compareTo(issueObj2));
 		assertNotEquals(-5, issueObj4.compareTo(issueObj2));
 		assertNotEquals(10, issueObj1.compareTo(issueObj2));
-		try {
-			assertNull(issueObj2.compareTo(null));
-		} catch (NullPointerException e) {
-			System.out.println("NullPointerException!");
-		}
 
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testNullPointerExceptionForCompareTo() {
+		Issue issueObj = new Issue();
+		issueObj.setId("5");
+		issueObj.compareTo(null);
 	}
 
 }
