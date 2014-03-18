@@ -3,9 +3,6 @@ package main.java;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
@@ -26,44 +23,8 @@ import org.apache.http.util.EntityUtils;
 
 public class GitHubRestClient {
 
-	public static void main(String[] args) throws Exception {
-		GitHubRestClient prototype = new GitHubRestClient();
-
-		final String URL = "/repos" + "/Villanova-SoftwareStudio"
-				+ "-Spring2014/achenreddy-private-repo" + "/issues";
-
-		// XXXXXX refer to username, password
-
-		String jsonOpen = prototype.requestIssues("AnushaChenreddy",
-				"Chenreddy$1", URL);
-		String jsonClosed = prototype.requestIssues("AnushaChenreddy",
-				"Chenreddy$1", URL + "?state=closed");
-
-		System.out.println(jsonOpen);
-		System.out.println(jsonClosed);
-
-		IssueParser parserObject = new IssueParser();
-		ArrayList<Issue> issues = new ArrayList<Issue>();
-		List<Issue> issuesClosed = new ArrayList<Issue>();
-		issues = (ArrayList<Issue>) parserObject.parseIssues(jsonOpen);
-		issuesClosed = parserObject.parseIssues(jsonClosed);
-
-		System.out.println(issues);
-		System.out.println(issuesClosed);
-
-		issues.addAll(issuesClosed);
-		System.out.println(issues);
-
-		Collections.sort(issues);
-		System.out.println(issues);
-
-		IssuesExporter exporterObject = new IssuesExporter();
-		exporterObject.numberOfIssues(issues);
-		exporterObject.writeToFile(issues);
-	}
-
 	/*
-	 * method makes a get request to the uri passed to it with given credentials
+	 * method makes a get request to the URI passed to it with given credentials
 	 */
 	public String requestIssues(String username, String password, String uri)
 			throws Exception {

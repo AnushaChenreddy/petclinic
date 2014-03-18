@@ -2,8 +2,10 @@ package main.java;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 /* @author Anusha Chenreddy
@@ -11,14 +13,42 @@ import java.util.Scanner;
  */
 
 public class IssuesExporter {
+	String userName = "";
+	String password = "";
 
 	public static void main(String[] args) throws Exception {
+
+		final String URL = "/repos" + "/Villanova-SoftwareStudio"
+				+ "-Spring2014/achenreddy-private-repo" + "/issues";
+
 		IssuesExporter issuesExporter = new IssuesExporter();
-		ArrayList<Issue> myList = new ArrayList<Issue>();
 		issuesExporter.readInput();
-		issuesExporter.issueList(myList);
-		issuesExporter.numberOfIssues(myList);
-		issuesExporter.writeToFile(myList);
+		GitHubRestClient prototype = new GitHubRestClient();
+		String jsonOpen = prototype.requestIssues(issuesExporter.userName,
+				issuesExporter.password, URL);
+		String jsonClosed = prototype.requestIssues(issuesExporter.userName,
+				issuesExporter.password, URL + "?state=closed");
+		System.out.println(jsonOpen);
+		System.out.println(jsonClosed);
+
+		IssueParser parserObject = new IssueParser();
+		ArrayList<Issue> issues = new ArrayList<Issue>();
+		List<Issue> issuesClosed = new ArrayList<Issue>();
+		issues = (ArrayList<Issue>) parserObject.parseIssues(jsonOpen);
+		issuesClosed = parserObject.parseIssues(jsonClosed);
+
+		System.out.println(issues);
+		System.out.println(issuesClosed);
+
+		issues.addAll(issuesClosed);
+		System.out.println(issues);
+
+		Collections.sort(issues);
+		System.out.println(issues);
+
+		issuesExporter.numberOfIssues(issues);
+		issuesExporter.writeToFile(issues);
+
 	}
 
 	/* Method to read input from console */
@@ -26,9 +56,9 @@ public class IssuesExporter {
 		Scanner input = new Scanner(System.in);
 		try {
 			System.out.println("Enter your GitHub username:");
-			String username = input.nextLine();
+			userName = input.nextLine();
 			System.out.println("Enter your password:");
-			String password = input.nextLine();
+			password = input.nextLine();
 		} catch (Exception e) {
 			System.out.println("Invalid Input");
 		} finally {
