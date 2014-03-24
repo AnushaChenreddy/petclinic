@@ -10,8 +10,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.studio.ghissues1.Issue;
-import com.studio.ghissues1.IssueParser;
+import com.studio.ghissues.Issue;
+import com.studio.ghissues.IssueParser;
 
 public class IssueParserTest {
 	String sampleOutput;

@@ -1,4 +1,4 @@
-package com.studio.ghissues1;
+package com.studio.ghissues;
 
 /**
  * @author Anusha Chenreddy

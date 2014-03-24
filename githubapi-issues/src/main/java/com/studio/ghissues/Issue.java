@@ -1,4 +1,4 @@
-package com.studio.ghissues1;
+package com.studio.ghissues;
 
 import java.util.Date;
 
