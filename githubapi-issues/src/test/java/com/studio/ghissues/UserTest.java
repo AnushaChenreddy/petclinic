@@ -6,6 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.studio.ghissues1.User;
+
 public class UserTest {
 
 	@Test

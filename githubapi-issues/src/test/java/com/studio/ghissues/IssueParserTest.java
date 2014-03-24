@@ -10,6 +10,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.studio.ghissues1.Issue;
+import com.studio.ghissues1.IssueParser;
+
 public class IssueParserTest {
 	String sampleOutput;
 
@@ -69,7 +72,7 @@ public class IssueParserTest {
 		try {
 			String path = System.getProperty("user.dir");
 			inputFile = new FileReader(path
-					+ "/src/test/java/SampleOutput.json");
+					+ "/src/test/java/com/studio/ghissues/SampleOutput.json");
 			reader = new BufferedReader(inputFile);
 			StringBuffer fileContent = new StringBuffer(reader.readLine());
 			while (reader.ready()) {
