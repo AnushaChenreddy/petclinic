@@ -7,9 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.studio.ghissues.Issue;
-import com.studio.ghissues.User;
-
 public class IssueTest {
 
 	@Test
