@@ -13,7 +13,7 @@ import org.junit.Test;
 public class IssueParserTest {
 	String sampleOutput;
 
-	@Test 
+	@Test
 	public void testParseIssues() throws Exception {
 
 		IssueParser issueParser = new IssueParser();

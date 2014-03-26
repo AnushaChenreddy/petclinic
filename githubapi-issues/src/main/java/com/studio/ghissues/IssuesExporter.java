@@ -28,8 +28,6 @@ public class IssuesExporter {
 				issuesExporter.password, URL);
 		String jsonClosed = prototype.requestIssues(issuesExporter.userName,
 				issuesExporter.password, URL + "?state=closed");
-		System.out.println(jsonOpen);
-		System.out.println(jsonClosed);
 
 		IssueParser parserObject = new IssueParser();
 		ArrayList<Issue> issues = new ArrayList<Issue>();
@@ -37,14 +35,9 @@ public class IssuesExporter {
 		issues = (ArrayList<Issue>) parserObject.parseIssues(jsonOpen);
 		issuesClosed = parserObject.parseIssues(jsonClosed);
 
-		System.out.println(issues);
-		System.out.println(issuesClosed);
-
 		issues.addAll(issuesClosed);
-		System.out.println(issues);
 
 		Collections.sort(issues);
-		System.out.println(issues);
 
 		issuesExporter.numberOfIssues(issues);
 		issuesExporter.writeToFile(issues);
