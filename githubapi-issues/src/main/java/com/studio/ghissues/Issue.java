@@ -57,6 +57,9 @@ public class Issue implements Comparable<Object> {
 	 *            the id to set
 	 */
 
+	/**
+	 * @return the state
+	 */
 	public String getState() {
 		return state;
 	}
@@ -210,22 +213,22 @@ public class Issue implements Comparable<Object> {
 	}
 
 	public int compareTo(Object obj) {
-		if (getClass() != obj.getClass()) {
-			return -1;
-		}
-		Issue other = (Issue) obj;
-		int locIntVal = Integer.parseInt(id);
-		int objIntVal = Integer.parseInt(other.id);
-		if (obj != null) {
-			if (locIntVal == objIntVal) {
-				return 0;
-			} else if (locIntVal > objIntVal) {
-				return 1;
-			} else {
-				return -1;
+		if (getClass() == obj.getClass()) {
+
+			Issue other = (Issue) obj;
+			int locIntVal = Integer.parseInt(id);
+			int objIntVal = Integer.parseInt(other.id);
+			if (obj != null) {
+				if (locIntVal == objIntVal) {
+					return 0;
+				} else if (locIntVal > objIntVal) {
+					return 1;
+				} else {
+					return -1;
+				}
 			}
 		}
-		return -1;
+		return -100;
 
 	}
 

@@ -22,7 +22,7 @@ public class IssueParser {
 					.create();
 			issues = new ArrayList<Issue>();
 			Type collectionType = new TypeToken<List<Issue>>() {
-			}.getType();
+			} .getType();
 			issues = gson.fromJson(input, collectionType);
 
 		} catch (Exception e) {
